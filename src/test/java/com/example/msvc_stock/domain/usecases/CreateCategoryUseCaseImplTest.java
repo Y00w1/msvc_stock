@@ -5,7 +5,8 @@ import com.example.msvc_stock.domain.exceptions.CategoryDescriptionIsRequiredExc
 import com.example.msvc_stock.domain.exceptions.CategoryDescriptionTooLongException;
 import com.example.msvc_stock.domain.exceptions.CategoryNameTooLongException;
 import com.example.msvc_stock.domain.models.Category;
-import com.example.msvc_stock.domain.ports.out.CategoryRepositoryPort;
+import com.example.msvc_stock.domain.ports.out.category.CategoryRepositoryPort;
+import com.example.msvc_stock.domain.usecases.category.CreateCategoryUseCaseImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

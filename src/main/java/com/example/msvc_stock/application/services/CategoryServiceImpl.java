@@ -2,18 +2,16 @@ package com.example.msvc_stock.application.services;
 
 import com.example.msvc_stock.application.dto.category.CategoryDto;
 import com.example.msvc_stock.application.dto.category.CreateCategoryDto;
-import com.example.msvc_stock.application.dto.mapper.CategoryMapper;
-import com.example.msvc_stock.application.dto.mapper.PaginationMapper;
-import com.example.msvc_stock.application.dto.mapper.SortMapper;
+import com.example.msvc_stock.application.dto.mapper.category.CategoryMapper;
+import com.example.msvc_stock.application.dto.mapper.pagination.PaginationMapper;
+import com.example.msvc_stock.application.dto.mapper.pagination.SortMapper;
 import com.example.msvc_stock.application.dto.pagination.PaginationDto;
 import com.example.msvc_stock.application.dto.pagination.SortDto;
 import com.example.msvc_stock.domain.models.Paged;
-import com.example.msvc_stock.domain.ports.in.CreateCategoryUseCase;
-import com.example.msvc_stock.domain.ports.in.GetCategoriesUseCase;
+import com.example.msvc_stock.domain.ports.in.category.CreateCategoryUseCase;
+import com.example.msvc_stock.domain.ports.in.category.GetCategoriesUseCase;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @AllArgsConstructor
