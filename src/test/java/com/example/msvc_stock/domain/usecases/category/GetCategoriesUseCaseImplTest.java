@@ -1,4 +1,4 @@
-package com.example.msvc_stock.domain.usecases;
+package com.example.msvc_stock.domain.usecases.category;
 
 import com.example.msvc_stock.domain.models.Category;
 import com.example.msvc_stock.domain.models.Paged;
@@ -6,7 +6,6 @@ import com.example.msvc_stock.domain.models.Pagination;
 import com.example.msvc_stock.domain.models.Sorter;
 import com.example.msvc_stock.domain.ports.in.category.GetCategoriesUseCase;
 import com.example.msvc_stock.domain.ports.out.category.CategoryRepositoryPort;
-import com.example.msvc_stock.domain.usecases.category.GetCategoriesUseCaseImpl;
 import com.example.msvc_stock.infrastructure.util.enums.SorterDirection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
