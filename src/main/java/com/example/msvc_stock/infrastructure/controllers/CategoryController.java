@@ -4,7 +4,7 @@ import com.example.msvc_stock.application.dto.category.CategoryDto;
 import com.example.msvc_stock.application.dto.category.CreateCategoryDto;
 import com.example.msvc_stock.application.dto.pagination.PaginationDto;
 import com.example.msvc_stock.application.dto.pagination.SortDto;
-import com.example.msvc_stock.application.services.CategoryService;
+import com.example.msvc_stock.application.services.category.CategoryService;
 import com.example.msvc_stock.domain.models.Paged;
 import com.example.msvc_stock.infrastructure.util.enums.SorterDirection;
 import jakarta.validation.Valid;
