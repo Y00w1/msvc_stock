@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface BrandRepositoryPort {
     Optional<Brand> getByName(String name);
+    Optional<Brand> getById(Long id);
     Brand createBrand(Brand brand);
     Paged<Brand> getBrands(Pagination pagination, Sorter sorter);
 }

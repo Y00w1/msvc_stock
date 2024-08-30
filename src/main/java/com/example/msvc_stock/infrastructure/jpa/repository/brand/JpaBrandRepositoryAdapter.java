@@ -26,6 +26,11 @@ public class JpaBrandRepositoryAdapter implements BrandRepositoryPort {
     }
 
     @Override
+    public Optional<Brand> getById(Long id) {
+        return jpaBrandRepository.findById(id).map(brandEntityMapper::toDomain);
+    }
+
+    @Override
     public Brand createBrand(Brand brand) {
         return brandEntityMapper.toDomain(jpaBrandRepository.save(brandEntityMapper.toEntity(brand)));
     }
