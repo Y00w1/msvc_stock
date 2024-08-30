@@ -1,4 +1,4 @@
-package com.example.msvc_stock.application.services;
+package com.example.msvc_stock.application.services.category;
 
 import com.example.msvc_stock.application.dto.category.CategoryDto;
 import com.example.msvc_stock.application.dto.category.CreateCategoryDto;

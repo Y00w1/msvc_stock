@@ -1,14 +1,10 @@
-package com.example.msvc_stock.domain.ports.out.brand;
+package com.example.msvc_stock.domain.ports.in.brand;
 
 import com.example.msvc_stock.domain.models.Brand;
 import com.example.msvc_stock.domain.models.Paged;
 import com.example.msvc_stock.domain.models.Pagination;
 import com.example.msvc_stock.domain.models.Sorter;
 
-import java.util.Optional;
-
-public interface BrandRepositoryPort {
-    Optional<Brand> getByName(String name);
-    Brand createBrand(Brand brand);
+public interface GetBrandsUseCase {
     Paged<Brand> getBrands(Pagination pagination, Sorter sorter);
 }

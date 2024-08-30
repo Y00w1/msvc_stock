@@ -1,4 +1,4 @@
-package com.example.msvc_stock.domain.exceptions;
+package com.example.msvc_stock.domain.exceptions.category;
 
 public class CategoryDescriptionIsRequiredException extends RuntimeException{
     public CategoryDescriptionIsRequiredException(String message) {

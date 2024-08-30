@@ -1,11 +1,13 @@
 package com.example.msvc_stock.infrastructure.config;
 
 import com.example.msvc_stock.domain.ports.in.brand.CreateBrandUseCase;
+import com.example.msvc_stock.domain.ports.in.brand.GetBrandsUseCase;
 import com.example.msvc_stock.domain.ports.in.category.CreateCategoryUseCase;
 import com.example.msvc_stock.domain.ports.in.category.GetCategoriesUseCase;
 import com.example.msvc_stock.domain.ports.out.brand.BrandRepositoryPort;
 import com.example.msvc_stock.domain.ports.out.category.CategoryRepositoryPort;
 import com.example.msvc_stock.domain.usecases.brand.CreateBrandUseCaseImpl;
+import com.example.msvc_stock.domain.usecases.brand.GetBrandsUseCaseImpl;
 import com.example.msvc_stock.domain.usecases.category.CreateCategoryUseCaseImpl;
 import com.example.msvc_stock.domain.usecases.category.GetCategoriesUseCaseImpl;
 import lombok.AllArgsConstructor;
@@ -29,5 +31,9 @@ public class BeanConfiguration {
     @Bean
     public CreateBrandUseCase createBrandUseCase(){
         return new CreateBrandUseCaseImpl(brandRepositoryPort);
+    }
+    @Bean
+    public GetBrandsUseCase getBrandsUseCase(){
+        return new GetBrandsUseCaseImpl(brandRepositoryPort);
     }
 }

@@ -89,7 +89,7 @@ class GetCategoriesUseCaseImplTest {
 
         assertEquals(1, categories.getItems().size());
         assertEquals("Apple", categories.getItems().get(0).getName());
-        assertEquals(2, categories.getTotal());
+        assertEquals(2, categories.getTotalPages());
     }
 
     @Test
@@ -102,6 +102,6 @@ class GetCategoriesUseCaseImplTest {
         Paged<Category> categories = getCategoriesUseCase.getCategories(pagination, sorter);
 
         assertTrue(categories.getItems().isEmpty());
-        assertEquals(0, categories.getTotal());
+        assertEquals(0, categories.getTotalPages());
     }
 }

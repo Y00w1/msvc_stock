@@ -5,12 +5,12 @@ import java.util.List;
 public class Paged<T> {
     List<T> items;
     int page;
-    int size;
-    int total;
+    int totalElements;
+    int totalPages;
 
-    public Paged(int total, int size, int page, List<T> items) {
-        this.total = total;
-        this.size = size;
+    public Paged(int totalPages, int totalElements, int page, List<T> items) {
+        this.totalPages = totalPages;
+        this.totalElements = totalElements;
         this.page = page;
         this.items = items;
     }
@@ -34,19 +34,19 @@ public class Paged<T> {
         this.page = page;
     }
 
-    public int getSize() {
-        return size;
+    public int getTotalElements() {
+        return totalElements;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setTotalElements(int totalElements) {
+        this.totalElements = totalElements;
     }
 
-    public int getTotal() {
-        return total;
+    public int getTotalPages() {
+        return totalPages;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setTotalPages(int totalPages) {
+        this.totalPages = totalPages;
     }
 }
