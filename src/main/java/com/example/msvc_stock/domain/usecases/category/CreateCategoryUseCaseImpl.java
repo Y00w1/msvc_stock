@@ -1,9 +1,9 @@
 package com.example.msvc_stock.domain.usecases.category;
 
-import com.example.msvc_stock.domain.exceptions.CategoryAlreadyExistsException;
-import com.example.msvc_stock.domain.exceptions.CategoryDescriptionIsRequiredException;
-import com.example.msvc_stock.domain.exceptions.CategoryDescriptionTooLongException;
-import com.example.msvc_stock.domain.exceptions.CategoryNameTooLongException;
+import com.example.msvc_stock.domain.exceptions.category.CategoryAlreadyExistsException;
+import com.example.msvc_stock.domain.exceptions.category.CategoryDescriptionIsRequiredException;
+import com.example.msvc_stock.domain.exceptions.category.CategoryDescriptionTooLongException;
+import com.example.msvc_stock.domain.exceptions.category.CategoryNameTooLongException;
 import com.example.msvc_stock.domain.models.Category;
 import com.example.msvc_stock.domain.ports.in.category.CreateCategoryUseCase;
 import com.example.msvc_stock.domain.ports.out.category.CategoryRepositoryPort;
@@ -54,13 +54,13 @@ public class CreateCategoryUseCaseImpl implements CreateCategoryUseCase {
             throw new CategoryAlreadyExistsException("Category already exists");
         });
         if (category.getDescription() == null || category.getDescription().isEmpty()) {
-            throw  new CategoryDescriptionIsRequiredException("Category description is required");
+            throw  new CategoryDescriptionIsRequiredException();
         }
         if (category.getName().length() > 50) {
-            throw new CategoryNameTooLongException("Category name cannot be longer than 50 characters");
+            throw new CategoryNameTooLongException();
         }
         if (category.getDescription().length() > 90) {
-            throw new CategoryDescriptionTooLongException("Category description cannot be longer than 90 characters");
+            throw new CategoryDescriptionTooLongException();
         }
     }
 }

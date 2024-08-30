@@ -16,7 +16,7 @@ public class JpaBrandRepositoryAdapter implements BrandRepositoryPort {
 
     @Override
     public Optional<Brand> getByName(String name) {
-        return Optional.of(brandEntityMapper.toDomain((jpaBrandRepository.findByName(name))));
+        return jpaBrandRepository.findByName(name).map(brandEntityMapper::toDomain);
     }
 
     @Override
