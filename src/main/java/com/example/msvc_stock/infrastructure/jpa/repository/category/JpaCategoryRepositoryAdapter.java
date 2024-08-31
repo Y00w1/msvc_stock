@@ -26,7 +26,7 @@ public class JpaCategoryRepositoryAdapter implements CategoryRepositoryPort {
     }
 
     @Override
-    public Optional<Category> findById(Long id) {
+    public Optional<Category> getById(Long id) {
         return jpaCategoryRepository.findById(id).map(entityMapper::toModel);
     }
 

@@ -46,22 +46,12 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public GetBrandByIdUseCase getBrandByIdUseCase() {
-        return new GetBrandByIdUseCaseImpl(brandRepositoryPort);
-    }
-
-    @Bean
     public GetBrandsUseCase getBrandsUseCase() {
         return new GetBrandsUseCaseImpl(brandRepositoryPort);
     }
 
     @Bean
     public CreateProductUseCase createProductUseCase() {
-        return new CreateProductUseCaseImpl(productRepositoryPort, getBrandByIdUseCase(), getCategoryByIdUseCase());
-    }
-
-    @Bean
-    public GetCategoryByIdUseCase getCategoryByIdUseCase() {
-        return new GetCategoryByIdUseCaseImpl(categoryRepositoryPort);
+        return new CreateProductUseCaseImpl(productRepositoryPort, categoryRepositoryPort, brandRepositoryPort);
     }
 }

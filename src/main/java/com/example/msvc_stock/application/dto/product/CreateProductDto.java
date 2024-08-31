@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
-import java.util.Set;
+import java.util.List;
 
 public record CreateProductDto(
         @NotBlank(message = "Name cannot be blank")
@@ -21,7 +21,7 @@ public record CreateProductDto(
         @Positive(message = "Price must be a positive number")
         Double price,
         @NotNull(message = "Categories IDs cannot be null")
-        Set<Long> categoriesIds,
+        List<Long> categoriesIds,
         @NotNull(message = "Brand ID cannot be null")
         Long brandId
 ) {

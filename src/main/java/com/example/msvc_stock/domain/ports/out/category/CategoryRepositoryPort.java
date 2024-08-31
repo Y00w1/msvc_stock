@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface CategoryRepositoryPort {
     Category save(Category category);
-    Optional<Category> findById(Long id);
+    Optional<Category> getById(Long id);
     Optional<Category> findByName(String name);
     Paged<Category> findAll(Pagination pagination, Sorter sorter);
     Optional<Category> update(Category category);

@@ -1,5 +1,6 @@
 package com.example.msvc_stock.domain.models;
 
+import java.util.List;
 import java.util.Set;
 
 public class Product {
@@ -9,12 +10,12 @@ public class Product {
     private Integer stock;
     private Double price;
     private Brand brand;
-    private Set<Category> categories;
+    private List<Category> categories;
 
     public Product() {
     }
 
-    public Product(Long id, String name, String description, Integer stock, Double price, Brand brand, Set<Category> categories) {
+    public Product(Long id, String name, String description, Integer stock, Double price, Brand brand, List<Category> categories) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -72,11 +73,11 @@ public class Product {
         this.brand = brand;
     }
 
-    public Set<Category> getCategories() {
+    public List<Category> getCategories() {
         return categories;
     }
 
-    public void setCategories(Set<Category> categories) {
+    public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
 }
