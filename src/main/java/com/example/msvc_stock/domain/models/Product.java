@@ -1,7 +1,6 @@
 package com.example.msvc_stock.domain.models;
 
 import java.util.List;
-import java.util.Set;
 
 public class Product {
     private Long id;
