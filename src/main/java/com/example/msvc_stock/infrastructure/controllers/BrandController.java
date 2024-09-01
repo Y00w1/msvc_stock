@@ -40,16 +40,16 @@ public class BrandController {
      * @param page Page number to be retrieved.
      * @param size Number of elements to be retrieved.
      * @param field Field to be sorted by.
-     * @param direction Direction of the sorting (ASC, DESC).
+     * @param sortDirection Direction of the sorting (ASC, DESC).
      * @return ResponseEntity with the DTO of the retrieved brands and an HTTP status code 200 (OK).
      */
     @GetMapping("/get")
     public  ResponseEntity<Paged<BrandDto>> getBrands(@RequestParam(defaultValue = "0") int page,
                                                       @RequestParam(defaultValue = "10") int size,
                                                       @RequestParam(defaultValue = "name") String field,
-                                                      @RequestParam(defaultValue = "ASC") SorterDirection direction){
+                                                      @RequestParam(defaultValue = "ASC") String sortDirection){
         PaginationDto paginationDto = new PaginationDto(page, size);
-        SortDto sortDto = new SortDto(field, direction);
+        SortDto sortDto = new SortDto(field, SorterDirection.valueOf(sortDirection.toUpperCase()));
         return new ResponseEntity<>(brandService.getBrands(paginationDto, sortDto), HttpStatus.OK);
     }
 }

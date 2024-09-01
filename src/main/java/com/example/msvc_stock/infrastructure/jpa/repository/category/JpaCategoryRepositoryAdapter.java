@@ -37,7 +37,7 @@ public class JpaCategoryRepositoryAdapter implements CategoryRepositoryPort {
 
     @Override
     public Paged<Category> findAll(Pagination pagination, Sorter sorter) {
-        Pageable pageable = PageRequest.of(pagination.getPage(), pagination.getSize(), Sort.by(Sort.Direction.fromString(sorter.getDirection().name()), sorter.getField()));
+        Pageable pageable = PageRequest.of(pagination.getPage(), pagination.getSize(), Sort.by(Sort.Direction.fromString(sorter.getSorterDirection().name()), sorter.getField()));
         return entityMapper.toModelPaged(jpaCategoryRepository.findAll(pageable));
     }
 

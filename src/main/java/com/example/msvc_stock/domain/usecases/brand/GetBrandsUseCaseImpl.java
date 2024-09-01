@@ -27,7 +27,7 @@ public class GetBrandsUseCaseImpl implements GetBrandsUseCase {
      * Retrieves a paginated and sorted list of brands.
      *
      * @param pagination Pagination object containing page number and size.
-     * @param sorter Sorter object containing sorting field and direction.
+     * @param sorter Sorter object containing sorting field and sorterDirection.
      * @return A paginated list of brands.
      */
     @Override

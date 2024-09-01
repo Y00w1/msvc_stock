@@ -17,6 +17,6 @@ public class GetCategoryByIdUseCaseImpl implements GetCategoryByIdUseCase {
     @Override
     public Optional<Category> getCategoryById(Long id) {
         return Optional.ofNullable(categoryRepositoryPort.getById(id)
-                .orElseThrow(() -> new CategoryNotFoundException()));
+                .orElseThrow(() -> new CategoryNotFoundException(id)));
     }
 }

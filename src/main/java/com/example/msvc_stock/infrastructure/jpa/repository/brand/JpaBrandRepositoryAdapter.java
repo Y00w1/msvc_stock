@@ -37,7 +37,7 @@ public class JpaBrandRepositoryAdapter implements BrandRepositoryPort {
 
     @Override
     public Paged<Brand> getBrands(Pagination pagination, Sorter sorter) {
-        Pageable pageable = PageRequest.of(pagination.getPage(), pagination.getSize(), Sort.by(Sort.Direction.fromString(sorter.getDirection().name()), sorter.getField()));
+        Pageable pageable = PageRequest.of(pagination.getPage(), pagination.getSize(), Sort.by(Sort.Direction.fromString(sorter.getSorterDirection().name()), sorter.getField()));
         return brandEntityMapper.toDomainPaged(jpaBrandRepository.findAll(pageable));
     }
 
