@@ -26,13 +26,18 @@ public class JpaBrandRepositoryAdapter implements BrandRepositoryPort {
     }
 
     @Override
+    public Optional<Brand> getById(Long id) {
+        return jpaBrandRepository.findById(id).map(brandEntityMapper::toDomain);
+    }
+
+    @Override
     public Brand createBrand(Brand brand) {
         return brandEntityMapper.toDomain(jpaBrandRepository.save(brandEntityMapper.toEntity(brand)));
     }
 
     @Override
     public Paged<Brand> getBrands(Pagination pagination, Sorter sorter) {
-        Pageable pageable = PageRequest.of(pagination.getPage(), pagination.getSize(), Sort.by(Sort.Direction.fromString(sorter.getDirection().name()), sorter.getField()));
+        Pageable pageable = PageRequest.of(pagination.getPage(), pagination.getSize(), Sort.by(Sort.Direction.fromString(sorter.getSorterDirection().name()), sorter.getField()));
         return brandEntityMapper.toDomainPaged(jpaBrandRepository.findAll(pageable));
     }
 
