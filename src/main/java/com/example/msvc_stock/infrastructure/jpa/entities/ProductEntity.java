@@ -21,6 +21,11 @@ public class ProductEntity {
     private Integer stock;
     private Double price;
     @ManyToMany
+    @JoinTable(
+            name = "products_categories",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
     private Set<CategoryEntity> categories;
     @ManyToOne
     private BrandEntity brand;

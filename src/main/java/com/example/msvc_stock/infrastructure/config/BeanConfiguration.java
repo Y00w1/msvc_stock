@@ -7,6 +7,7 @@ import com.example.msvc_stock.domain.ports.in.category.CreateCategoryUseCase;
 import com.example.msvc_stock.domain.ports.in.category.GetCategoriesUseCase;
 import com.example.msvc_stock.domain.ports.in.category.GetCategoryByIdUseCase;
 import com.example.msvc_stock.domain.ports.in.product.CreateProductUseCase;
+import com.example.msvc_stock.domain.ports.in.product.GetProductsUseCase;
 import com.example.msvc_stock.domain.ports.out.brand.BrandRepositoryPort;
 import com.example.msvc_stock.domain.ports.out.category.CategoryRepositoryPort;
 import com.example.msvc_stock.domain.ports.out.product.ProductRepositoryPort;
@@ -17,6 +18,7 @@ import com.example.msvc_stock.domain.usecases.category.CreateCategoryUseCaseImpl
 import com.example.msvc_stock.domain.usecases.category.GetCategoriesUseCaseImpl;
 import com.example.msvc_stock.domain.usecases.category.GetCategoryByIdUseCaseImpl;
 import com.example.msvc_stock.domain.usecases.product.CreateProductUseCaseImpl;
+import com.example.msvc_stock.domain.usecases.product.GetProductsUseCaseImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -53,5 +55,9 @@ public class BeanConfiguration {
     @Bean
     public CreateProductUseCase createProductUseCase() {
         return new CreateProductUseCaseImpl(productRepositoryPort, categoryRepositoryPort, brandRepositoryPort);
+    }
+    @Bean
+    public GetProductsUseCase getProductsUseCase() {
+        return new GetProductsUseCaseImpl(productRepositoryPort);
     }
 }
