@@ -14,8 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * REST controller to handle operations related to brands.
- * Maps HTTP requests to appropriate service methods.
+ * REST controller for managing brand-related operations.
+ * <p>
+ * This controller handles the HTTP requests related to brands.
  */
 @RestController
 @RequestMapping("/brand")
@@ -24,10 +25,13 @@ public class BrandController {
     private final BrandService brandService;
 
     /**
-     * Endpoint to create a new brand.
+     * Creates a new brand.
+     * <p>
+     * This endpoint accepts a POST request with a {@link CreateBrandDto} object in the request body,
+     * validates it, and creates a new brand based on the provided data.
      *
-     * @param createBrandDto Object containing the data for the brand to be created.
-     * @return ResponseEntity with the DTO of the created brand and an HTTP status code 201 (CREATED).
+     * @param createBrandDto The {@link CreateBrandDto} object containing the brand details to be created.
+     * @return A {@link ResponseEntity} containing the created {@link BrandDto} object and the HTTP status code {@code 201 CREATED}.
      */
     @PostMapping("/create")
     public ResponseEntity<BrandDto> createBrand(@Valid @RequestBody CreateBrandDto createBrandDto) {
