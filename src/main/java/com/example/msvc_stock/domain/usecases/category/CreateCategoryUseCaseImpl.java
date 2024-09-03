@@ -1,9 +1,6 @@
 package com.example.msvc_stock.domain.usecases.category;
 
-import com.example.msvc_stock.domain.exceptions.category.CategoryAlreadyExistsException;
-import com.example.msvc_stock.domain.exceptions.category.CategoryDescriptionIsRequiredException;
-import com.example.msvc_stock.domain.exceptions.category.CategoryDescriptionTooLongException;
-import com.example.msvc_stock.domain.exceptions.category.CategoryNameTooLongException;
+import com.example.msvc_stock.domain.exceptions.category.*;
 import com.example.msvc_stock.domain.models.Category;
 import com.example.msvc_stock.domain.ports.in.category.CreateCategoryUseCase;
 import com.example.msvc_stock.domain.ports.out.category.CategoryRepositoryPort;
@@ -51,10 +48,13 @@ public class CreateCategoryUseCaseImpl implements CreateCategoryUseCase {
      */
     private void validateCategory(Category category) {
         categoryRepositoryPort.findByName(category.getName()).ifPresent(c -> {
-            throw new CategoryAlreadyExistsException("Category already exists");
+            throw new CategoryAlreadyExistsException(category.getName());
         });
         if (category.getDescription() == null || category.getDescription().isEmpty()) {
             throw  new CategoryDescriptionIsRequiredException();
+        }
+        if (category.getName() == null || category.getName().isEmpty()) {
+            throw new CategoryNameIsRequiredException();
         }
         if (category.getName().length() > 50) {
             throw new CategoryNameTooLongException();

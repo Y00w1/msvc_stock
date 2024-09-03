@@ -22,22 +22,24 @@ public class JpaCategoryRepositoryAdapter implements CategoryRepositoryPort {
 
     @Override
     public Category save(Category category) {
-        return entityMapper.toModel(jpaCategoryRepository.save(entityMapper.toEntity(category)));
+        return entityMapper.toDomain(jpaCategoryRepository.save(entityMapper.toEntity(category)));
     }
 
     @Override
-    public Optional<Category> findById(Long id) {
-        return Optional.empty();
+    public Optional<Category> getById(Long id) {
+        return jpaCategoryRepository.findById(id).map(entityMapper::toDomain);
     }
 
     @Override
     public Optional<Category> findByName(String name) {
-        return jpaCategoryRepository.findByName(name).map(entityMapper::toModel);
+        return jpaCategoryRepository.findByName(name).map(entityMapper::toDomain);
     }
 
     @Override
     public Paged<Category> findAll(Pagination pagination, Sorter sorter) {
-        Pageable pageable = PageRequest.of(pagination.getPage(), pagination.getSize(), Sort.by(Sort.Direction.fromString(sorter.getDirection().name()), sorter.getField()));
+        Pageable pageable = PageRequest.of(pagination.getPage(), pagination.getSize(),
+                Sort.by(Sort.Direction.fromString(sorter.getSorterDirection().name()), sorter.getField())
+        );
         return entityMapper.toModelPaged(jpaCategoryRepository.findAll(pageable));
     }
 

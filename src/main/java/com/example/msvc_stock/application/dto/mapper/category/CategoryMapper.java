@@ -16,7 +16,7 @@ public interface CategoryMapper {
     List<CategoryDto> toDto(List<Category> categories);
     @Mapping(target = "items", expression = "java(toDto(paged.getItems()))")
     @Mapping(target = "page", expression = "java(paged.getPage())")
-    @Mapping(target = "size", expression = "java(paged.getSize())")
-    @Mapping(target = "total", expression = "java(paged.getTotal())")
+    @Mapping(target = "totalElements", expression = "java(paged.getTotalElements())")
+    @Mapping(target = "totalPages", expression = "java(paged.getTotalPages())")
     Paged<CategoryDto> toDtoPaged(Paged<Category> paged);
 }

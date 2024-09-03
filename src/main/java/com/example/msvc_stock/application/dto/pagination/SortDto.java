@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 
 public record SortDto(
         @NotBlank(message = "Sort field cannot be empty") String field,
-        SorterDirection direction
+        SorterDirection sorterDirection
 ) {
     public SortDto() {
         this("name", SorterDirection.ASC); // Default sort by 'name' in ascending order

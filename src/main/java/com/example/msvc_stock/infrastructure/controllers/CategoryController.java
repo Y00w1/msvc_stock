@@ -6,6 +6,7 @@ import com.example.msvc_stock.application.dto.pagination.PaginationDto;
 import com.example.msvc_stock.application.dto.pagination.SortDto;
 import com.example.msvc_stock.application.services.category.CategoryService;
 import com.example.msvc_stock.domain.models.Paged;
+import com.example.msvc_stock.infrastructure.exceptions.sort.InvalidSorterDirectionException;
 import com.example.msvc_stock.infrastructure.util.enums.SorterDirection;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -40,7 +41,7 @@ public class CategoryController {
      * @param page Page number to be retrieved.
      * @param size Number of elements to be retrieved.
      * @param field Field to be sorted by.
-     * @param direction Direction of the sorting (ASC, DESC).
+     * @param sortDirection Direction of the sorting (ASC, DESC).
      * @return ResponseEntity with the DTO of the retrieved categories and an HTTP status code 200 (OK).
      */
     @GetMapping("/get")
@@ -48,8 +49,14 @@ public class CategoryController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(defaultValue = "name") String field,
-            @RequestParam(defaultValue = "ASC") SorterDirection direction) {
+            @RequestParam(defaultValue = "ASC") String sortDirection) {
         PaginationDto paginationDto = new PaginationDto(page, size);
+        SorterDirection direction;
+        try {
+            direction = SorterDirection.valueOf(sortDirection.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new InvalidSorterDirectionException("Invalid sort direction: " + sortDirection);
+        }
         SortDto sortDto = new SortDto(field, direction);
         return new ResponseEntity<>(categoryService.getCategories(paginationDto, sortDto), HttpStatus.OK);
     }

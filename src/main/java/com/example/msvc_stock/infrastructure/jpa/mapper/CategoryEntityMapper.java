@@ -12,11 +12,11 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface CategoryEntityMapper {
     CategoryEntity toEntity(Category category);
-    Category toModel(CategoryEntity categoryEntity);
-    List<Category> toModel(List<CategoryEntity> categoryEntityList);
-    @Mapping(target = "items", expression = "java(toModel((categoryEntityPaged.getContent())))")
+    Category toDomain(CategoryEntity categoryEntity);
+    List<Category> toDomain(List<CategoryEntity> categoryEntityList);
+    @Mapping(target = "items", expression = "java(toDomain((categoryEntityPaged.getContent())))")
     @Mapping(target = "page", expression = "java(categoryEntityPaged.getNumber())")
-    @Mapping(target = "size", expression = "java((int) categoryEntityPaged.getTotalElements())")
-    @Mapping(target = "total", expression = "java(categoryEntityPaged.getTotalPages())")
+    @Mapping(target = "totalElements", expression = "java((int) categoryEntityPaged.getTotalElements())")
+    @Mapping(target = "totalPages", expression = "java(categoryEntityPaged.getTotalPages())")
     Paged<Category> toModelPaged(Page<CategoryEntity> categoryEntityPaged);
 }

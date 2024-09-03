@@ -4,8 +4,7 @@ public enum BrandMessages {
     BRAND_ALREADY_EXISTS("Brand '%s' already exists"),
     BRAND_NAME_TOO_LONG("Brand name '%s' cannot exceed 50 characters"),
     BRAND_DESCRIPTION_TOO_LONG("Brand description '%s' cannot exceed 120 characters"),
-    BRAND_NAME_CANNOT_BE_BLANK("Brand name cannot be blank"),
-    BRAND_DESCRIPTION_CANNOT_BE_BLANK("Brand description cannot be blank");
+    BRAND_NOT_FOUND("Brand with id '%s' not found.");
 
     private final String message;
 
